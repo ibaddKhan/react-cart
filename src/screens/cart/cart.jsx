@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Signup = () => {
+const Cart = () => {
+ 
+  
   return (
     <>
-
-      <Link to="/">Login</Link>
+      <h1>Cart</h1>
     </>
   )
 }
 
-export default Signup
+export default Cart
