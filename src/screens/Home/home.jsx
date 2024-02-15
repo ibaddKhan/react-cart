@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Card from '../../components/card';
 const Home = () => {
   let [arr, setArr] = useState(null);
   useEffect(() => {
@@ -13,15 +14,12 @@ const Home = () => {
 
   return (
     <>
-      <div className='flex justify-center items-center flex-wrap'>
+      <div className='flex flex-wrap gap-5'>
         {
           arr && arr.map((item, i) => (
-            item.condition === 'new' ? 
-              <CardDefault key={i} /> :
-              <div className="border m-10" key={i}>
-                <img src={item.image} width={200} />
-                <h5>{item.title}</h5>
-              </div>
+            item.description.length > 100 ? item.description = item.description.substring(0, 100) + '...' : item.description, 
+            
+           <Card key={i} title={item.title} img={item.image} price={item.price} desc={item.description}/>
           ))
         }
       </div>
