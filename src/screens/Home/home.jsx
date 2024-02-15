@@ -14,7 +14,7 @@ const Home = () => {
 
   return (
     <>
-      <div className='flex flex-wrap gap-5'>
+      <div className='flex mt-16 justify-center flex-wrap gap-5'>
         {
           arr && arr.map((item, i) => (
             item.description.length > 100 ? item.description = item.description.substring(0, 100) + '...' : item.description, 
