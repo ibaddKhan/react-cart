@@ -1,12 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Navbar from '../../components/navbar'
 
 const Cart = () => {
- 
-  
+
+
   return (
     <>
-      <h1>Cart</h1>
+      <Navbar />
+      <h1 className='mt-10'>Cart</h1>
+
     </>
   )
 }

@@ -1,25 +1,22 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit';
 
-export const todoSlice = createSlice({
-    name: 'Todos',
+export const Array = createSlice({
+    name: 'cartArray',
     initialState: {
-        todos: [{
-            title: 'Hello world',
-            id: 1
-        }]
+        todos: []
     },
     reducers: {
-        addTodo: (state, action) => {
+        addToCart: (state, action) => {
             state.todos.push({
                 title: action.payload.title,
                 id: nanoid()
             })
         },
-        removeTodo: (state, action) => {
+        removeFromCart: (state, action) => {
             state.todos.splice(action.payload.index, 1);
         }
     }
 })
 
-export const { addTodo, removeTodo } = todoSlice.actions
-export default todoSlice.reducer
+export const { addToCart, removeFromCart } = Array.actions
+export default Array.reducer
