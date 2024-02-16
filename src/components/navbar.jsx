@@ -1,9 +1,12 @@
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-const Navbar = ({count}) => {
+const Navbar = () => {
+    const counter = useSelector((state) => state.counter);
+
     return (
         <nav className="bg-blue-500 p-4 left-0  fixed w-full top-0">
             <div className="container mx-auto flex justify-between items-center">
@@ -14,7 +17,7 @@ const Navbar = ({count}) => {
                     <div className='flex justify center'>
                         <Link to="/cart" className="text-white hover:underline">
                             <FontAwesomeIcon icon={faCartShopping} className='text-2xl relative ml-2' />
-                            <p className='absolute top-1 right-[2%] font-semibold z-10 text-red-600 '>0</p>
+                            <p className='absolute top-1 right-[2%] font-semibold z-10 text-red-600 '>{counter}</p>
                         </Link>
                     </div>
                 </div>

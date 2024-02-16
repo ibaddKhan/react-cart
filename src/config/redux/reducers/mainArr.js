@@ -1,22 +1,24 @@
-import { createSlice, nanoid } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-export const Array = createSlice({
-    name: 'cartArray',
-    initialState: {
-        todos: []
+const initialState = {
+  todos: [],
+  counter: 0,
+};
+
+const mainArrSlice = createSlice({
+  name: 'mainArr',
+  initialState,
+  reducers: {
+    addToCart: (state, action) => {
+      state.todos.push(action.payload.item);
+      state.counter = state.todos.length;
     },
-    reducers: {
-        addToCart: (state, action) => {
-            state.todos.push({
-                title: action.payload.title,
-                id: nanoid()
-            })
-        },
-        removeFromCart: (state, action) => {
-            state.todos.splice(action.payload.index, 1);
-        }
-    }
-})
+    removeFromCart: (state, action) => {
+      state.todos.splice(action.payload.index, 1);
+      state.counter = state.todos.length;
+    },
+  },
+});
 
-export const { addToCart, removeFromCart } = Array.actions
-export default Array.reducer
+export const { addToCart, removeFromCart } = mainArrSlice.actions;
+export default mainArrSlice.reducer;
