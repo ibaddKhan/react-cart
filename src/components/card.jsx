@@ -1,7 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../config/redux/reducers/mainArr'; // Adjust the path accordingly
+import { addToCart } from '../config/redux/reducers/mainArr'; 
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Card = ({ title, img, desc, price, index, array }) => {
     const dispatch = useDispatch();
@@ -9,6 +10,13 @@ const Card = ({ title, img, desc, price, index, array }) => {
     function handleAddToCart(index) {
         console.log(array, index);
 
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Added to cart",
+            showConfirmButton: false,
+            timer: 1500
+          });
         dispatch(addToCart({
             item: array,
         }));
